@@ -1,0 +1,45 @@
+.icon {
+    font-size: 32px;
+}
+
+.text-nav {
+    font-size: 15px;
+    padding-left: 15px !important;
+
+}
+
+.nav-line {
+    border-bottom: solid 1px black;
+}
+
+.btn {
+    border-radius: 5px;
+}
+
+.form {
+    border: none;
+    border-radius: 0px;
+}
+
+.custom-input {
+    height: 55px;
+}
+
+.custom-input::placeholder {
+    /* color: #999;  */
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    box-shadow: none;
+}
+
+.custom-input:focus::placeholder {
+    transform: translateY(-100%);
+    /* color: red;  */
+}
+
+
+.cursor-pointer{
+    cursor: pointer;
+}
