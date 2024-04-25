@@ -1,12 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { CiShoppingCart } from "react-icons/ci";
-import { CiHeart } from "react-icons/ci";
+
+import logo from "../../assites/WhatsApp Image 2024-04-25 at 14.02 1.png"
 
 
 export default function Navbar({userData,Logout}) {
-
-
 
 
 return (
@@ -14,26 +12,20 @@ return (
 
 {/*  */}
 
-  <nav className="navbar navbar-expand-lg py-1">
-    <div className="container-fluid">
-<Link className="navbar-brand fw-bolder fs-3 " to="home">فLa7za</Link>
+  <nav className="navbar navbar-expand-lg py-1 ">
+    <div className="container ">
+<Link className="navbar-brand fw-bolder  fs-3 " to="home">
+  <img className="w-100 logo" src={logo} alt="" />
+</Link>
 <button className="navbar-toggler" type="button"  data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"  aria-label="Toggle navigation">
   <span className="navbar-toggler-icon"></span>
 </button>
-<div className="collapse navbar-collapse" id="navbarSupportedContent">
-  <ul className="navbar-nav m-auto mb-2 mb-lg-0 py-2">
-    <li className="nav-item"><Link className="nav-link active text-nav fw-bold" aria-current="page" to="home">Home
-  </Link>
-    </li>
-    <li className="nav-item">
-  <Link className="nav-link text-nav fw-bold"  aria-current="page" to="contact">Contact</Link>
-  </li>
-    <li className="nav-item">
-  <Link className="nav-link text-nav fw-bold"  aria-current="page" to="about">About</Link>
-    </li>
+<div className="collapse navbar-collapse navb" id="navbarSupportedContent">
+  <ul className="navbar-nav ms-auto mb-2 mb-lg-0 py-2">
 
   {/* chick user data show  the login button and add to cart icon */}
-    {userData == null ?
+    
+  {userData == null ? 
       <>
       <li className="nav-item">
   <Link className="nav-link text-nav fw-bold" aria-current="page" to="signup"> Sign Up </Link>
@@ -43,38 +35,32 @@ return (
     </li>
       </>
     : <>
-       <li className="nav-item">
-  <Link className="nav-link text-nav fw-bold" aria-current="page" to="product"> Product </Link>
-    </li>
-    <li className="nav-item">
-  <Link className="nav-link text-nav fw-bold " aria-current="page" to="brand"> Brand</Link>
-    </li>
-    <li className="nav-item">
-  <Link className="nav-link text-nav fw-bold " aria-current="page" to="subCatigory"> SubCatigory</Link>
-    </li>
+
+
+{userData.role == "admin" ?
+<>
+
+<li className="nav-item m-auto">
+ <Link className="nav-link text-nav fw-bold " aria-current="page" to="users"> users</Link> 
+     </li>
+     <li className="nav-item m-auto">
+     <Link className="nav-link text-nav fw-bold " aria-current="page" to="form"> form</Link> 
+         </li>
+
+</>
+: <li className="nav-item m-auto">
+      <Link className="nav-link text-nav fw-bold " aria-current="page" to="form"> form</Link> 
+          </li>}
+
+   <li className="nav-item m-auto mx-5">
+        <span onClick={Logout} className='nav-item  cursor-pointer fw-bolder'>Sign Out</span>
+          </li>
+
     
     </>}
-  </ul>
-
-  <ul className="align-items-center justify-content-center d-flex navbar-nav ms-auto mb-2 mb-lg-0">
-    <li className="nav-item ">
-  <form className="" role="search">
-    <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-  </form>
-
-    </li>
-    <li className="nav-item mb-2 position-relative">
-  <Link className="nav-link active  text-black  icon" aria-current="page" to="wishlist"> <CiHeart color="red" /> {""}</Link>
-    </li>
-    <li className="nav-item  mb-2 ">
-  <Link className="nav-link active text-black icon" aria-current="page" to="cart" > <CiShoppingCart color="blue" />{" "} </Link>
-    </li>
-{userData == null ? "":
-        <li className="nav-item m-auto">
-        <span onClick={Logout} className='nav-item  cursor-pointer'>Sign Out</span>
-          </li>}
     
   </ul>
+
 </div>
     </div>
   </nav>

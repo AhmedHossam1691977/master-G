@@ -1,12 +1,9 @@
 import React, { useState } from "react";
-import img from "../../assites/a1c7dc5b68a42239311e510f54d8cd59.jpeg";
-import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router-dom";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import {useNavigate} from "react-router-dom"
-
+// import logo from "../../assites/WhatsApp Image 2024-04-25 at 14.02 1.png"
 
 
 export default function SignUp() {
@@ -15,7 +12,7 @@ export default function SignUp() {
 
   let [errorMessage,setErrorMessage]=useState("")
 
-  const basurl = "https://la7za-ecommerce.onrender.com/"
+  const basurl = "https://final-form.onrender.com"
   let nav = useNavigate()
 
 
@@ -42,7 +39,7 @@ export default function SignUp() {
 
   async function onSubmit(valus){
     setLoding(true)
-    let {data}=await axios.post(`${basurl}api/v1/auth/signup`,valus).catch((error)=>{
+    let {data}=await axios.post(`${basurl}/api/v1/auth/epay/signup`,valus).catch((error)=>{
         setErrorMessage(error.response.data.error)
         
     setLoding(false)
@@ -50,7 +47,7 @@ export default function SignUp() {
     setLoding(false)
 
     if(data.message == 'success'){
-      nav('/signin')
+      nav('/form')
     }
 
 
@@ -72,15 +69,12 @@ export default function SignUp() {
     <>
       <div className="container-fluid py-5">
         <div className="row align-items-center">
-          <div className="col-md-7">
-            <img className="w-100" src={img} alt="imageLogin" />
-          </div>
-          <div className="col-md-5 py-5 px-5">
+          <div className="col-md-12 py-5 px-5">
             <div className="px-5">
-              <h2>
+              <h2 className="fw-bold text-center">
                 Create an <span className=" text-danger">account</span>
               </h2>
-              <h3 className="fs-6">Enter your details below</h3>
+              <h3 className='fs-3 fw-bold'>Sign up</h3>
               {errorMessage == "" ? "":<div className="alert alert-danger">{errorMessage}</div>}
               <form onSubmit={registeform.handleSubmit}>
                 <div className="my-3">
@@ -108,12 +102,8 @@ export default function SignUp() {
                 {loding ?<button type='button' className='btn btn-danger m-auto d-block w-100 my-3'><i className="fa-solid fa-spinner fa-spin"></i></button>:<button disabled={!(registeform.isValid && registeform.dirty)} type="submit"className="btn btn-danger m-auto d-block w-100 my-3">Create Account</button>}  
 
 
-                <button className="btn border border-black border-1 m-auto w-100 d-block"><FcGoogle className="fs-4" /> Sign up with Google</button> 
-              </form>
-              <p className="w-100 text-center my-3 fw-bold">Already have account? <Link to="/signin">
-                  <button className="btn px-2 py-2 text-danger fw-bold">log In</button>
-                </Link>
-              </p>
+                 </form>
+              
             </div>
           </div>
         </div>

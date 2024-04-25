@@ -1,3 +1,16 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&family=Encode+Sans+Semi+Expanded:wght@300&display=swap');
+:root
+{
+    --main-color:#000000;
+    --light-color:#888484;
+    --shadow: rgba(145,158,171,.2) 1px 2px 4px -1px,rgba(145,158,171,.14) 0px 4px 5px 0px,rgba(145,158,171,.12) 0px 1px 10px 0px;
+    --font-family:'Encode Sans Expanded', sans-serif;
+    --rating-color:#ffc908;
+}
+
+
 .icon {
     font-size: 32px;
 }
@@ -9,7 +22,7 @@
 }
 
 .nav-line {
-    border-bottom: solid 1px black;
+    border-bottom: solid 1px var(--main-color);
 }
 
 .btn {
@@ -23,6 +36,7 @@
 
 .custom-input {
     height: 55px;
+    
 }
 
 .custom-input::placeholder {
@@ -43,3 +57,10 @@
 .cursor-pointer{
     cursor: pointer;
 }
+
+
+.logo{
+    width: 150px !important;
+    height: 80px;
+}
+
